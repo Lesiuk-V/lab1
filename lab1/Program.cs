@@ -5,6 +5,7 @@ namespace lab1
 {
     class Program
     {
+        //функція для пошуку кількості цифр в числі
         static int fun1(int n)
         {
             int count = (n == 0) ? 1 : 0;
@@ -16,7 +17,7 @@ namespace lab1
             Console.WriteLine($"Кількість цифр в числі - { count }");
             return count;
         }
-
+        // функція для створення масиву із чисел числа n
         static int[] fun2(int n)
         {
             if (n == 0) return new int[1] { 0 };
@@ -34,7 +35,7 @@ namespace lab1
             }
             return arr;
         }
-
+        // середнє арифметичне чисел
         static void fun3(int[] arr, int count)
         {
             double sum = 0;
@@ -46,7 +47,7 @@ namespace lab1
             arufm = sum / count;
             Console.WriteLine($"Середнє арифметичне = {arufm}");
         }
-
+        // середнє геометричне чисел
         static void fun4(int[] arr, int count)
         {
             double dob = 1;
@@ -58,7 +59,7 @@ namespace lab1
             geom = Math.Pow(dob, 1.0 / count);
             Console.WriteLine($"Середнє геометричне = {geom}");
         }
-
+        //Факторіал
         static void fun5(int n)
         {
             int fact = 1;
@@ -68,7 +69,7 @@ namespace lab1
             }
             Console.WriteLine($"Факторіал { n } це: { fact }");
         }
-
+        //сума парних чисел
         static void fun6(int n)
         {
             int sum = 0;
@@ -79,6 +80,7 @@ namespace lab1
             }
             Console.WriteLine($"Сума парних чисел: {sum}");
         }
+        // сума непарних чисел
         static void fun7(int n)
         {
             int sum = 0;
@@ -89,7 +91,7 @@ namespace lab1
             }
             Console.WriteLine($"Сума не парних чисел: {sum}");
         }
-
+        // перевантаження для 6 ф
         static void fun6(int a, int b, int n)
         {
             int sum = 0;
@@ -100,7 +102,7 @@ namespace lab1
             }
             Console.WriteLine($"Сума парних чисел від {a} до {b}: {sum}");
         }
-
+        // перевантаження для 7ф
         static void fun7(int a, int b, int n)
         {
             int sum = 0;
