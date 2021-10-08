@@ -6,7 +6,7 @@ namespace lab1
     class Program
     {
         //функція для пошуку кількості цифр в числі
-        static int fun1(int n)
+        static int FindCountOfNumbers(int n)
         {
             int count = (n == 0) ? 1 : 0;
             while (n != 0)
@@ -18,7 +18,7 @@ namespace lab1
             return count;
         }
         // функція для створення масиву із чисел числа n
-        static int[] fun2(int n)
+        static int[] ArrayFromNumber(int n, int count)
         {
             if (n == 0) return new int[1] { 0 };
             var digits = new List<int>();
@@ -27,7 +27,13 @@ namespace lab1
                 digits.Add(n % 10);
 
             var arr = digits.ToArray();
-            Array.Reverse(arr);
+
+            for (int i = 0; i < count / 2; ++i)
+            {
+                int holder = arr[i];
+                arr[i] = arr[count - 1 - i];
+                arr[count - 1 - i] = holder;
+            }
             Console.WriteLine("v mas:");
             foreach (int el in arr)
             {
@@ -36,7 +42,7 @@ namespace lab1
             return arr;
         }
         // середнє арифметичне чисел
-        static void fun3(int[] arr, int count)
+        static void ArithmetiMean(int[] arr, int count)
         {
             double sum = 0;
             for (int i = 0; i < count; i++)
@@ -48,7 +54,7 @@ namespace lab1
             Console.WriteLine($"Середнє арифметичне = {arufm}");
         }
         // середнє геометричне чисел
-        static void fun4(int[] arr, int count)
+        static void GeometricMean(int[] arr, int count)
         {
             double dob = 1;
             for (int i = 0; i < count; i++)
@@ -60,7 +66,7 @@ namespace lab1
             Console.WriteLine($"Середнє геометричне = {geom}");
         }
         //Факторіал
-        static void fun5(int n)
+        static void factorial(int n)
         {
             int fact = 1;
             for (int i = 1; i <= n; i++)
@@ -70,7 +76,7 @@ namespace lab1
             Console.WriteLine($"Факторіал { n } це: { fact }");
         }
         //сума парних чисел
-        static void fun6(int n)
+        static void SumOfEvenNumbers(int n)
         {
             int sum = 0;
             for (int i = 1; i <= n; i++)
@@ -81,7 +87,7 @@ namespace lab1
             Console.WriteLine($"Сума парних чисел: {sum}");
         }
         // сума непарних чисел
-        static void fun7(int n)
+        static void SumOfNonEvenNumbers(int n)
         {
             int sum = 0;
             for (int i = 1; i <= n; i++)
@@ -92,7 +98,7 @@ namespace lab1
             Console.WriteLine($"Сума не парних чисел: {sum}");
         }
         // перевантаження для 6 ф
-        static void fun6(int a, int b, int n)
+        static void SumOfEvenNumbers(int a, int b, int n)
         {
             int sum = 0;
             for (int i = a; i <= b; i++)
@@ -103,7 +109,7 @@ namespace lab1
             Console.WriteLine($"Сума парних чисел від {a} до {b}: {sum}");
         }
         // перевантаження для 7ф
-        static void fun7(int a, int b, int n)
+        static void SumOfNonEvenNumbers(int a, int b, int n)
         {
             int sum = 0;
             for (int i = a; i <= b; i++)
@@ -118,18 +124,18 @@ namespace lab1
         {
             Console.WriteLine("Введіть будь яке ціле число");
             int n = Convert.ToInt32(Console.ReadLine());
-            int count = fun1(n);
-            int[] arr = fun2(n);
-            fun3(arr, count);
-            fun4(arr, count);
-            fun5(n);
-            fun6(n);
-            fun7(n);
+            int count = FindCountOfNumbers(n);
+            int[] arr = ArrayFromNumber(n,count);
+            ArithmetiMean(arr, count);
+            GeometricMean(arr, count);
+            factorial(n);
+            SumOfEvenNumbers(n);
+            SumOfNonEvenNumbers(n);
             Console.WriteLine("Введіть a та b для знаходження суми парних та непарних чисел в цтому діапазоні");
             int a = Convert.ToInt32(Console.ReadLine());
             int b = Convert.ToInt32(Console.ReadLine());
-            fun6(a, b, n);
-            fun7(a, b, n);
+            SumOfEvenNumbers(a, b, n);
+            SumOfNonEvenNumbers(a, b, n);
         }
     }
 }
